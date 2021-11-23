@@ -1,52 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:spotify_clone/src/atomic/vseparator.dart';
+
+import 'atomic/big_card.dart';
+import 'mocked-data/recently_played.dart';
 
 class RecommendationsRow extends StatelessWidget {
   const RecommendationsRow({Key? key}) : super(key: key);
 
-  Widget _buildList() {
-    return ListView(
-      scrollDirection: Axis.horizontal,
-      padding: const EdgeInsets.all(2),
-      children: <Widget>[
-        Container(
-          width: 100,
-          color: Colors.black,
-          margin: const EdgeInsets.all(2),
-          child: Column(
-            children: [Image.asset('images/marley_exodus.jpeg')],
-          ),
-        ),
-        Container(
-          width: 100,
-          color: Colors.blue,
-          margin: const EdgeInsets.all(2),
-          child: Column(
-            children: [Image.asset('images/heynes_lsd.jpeg')],
-          ),
-        ),
-        Container(
-          width: 100,
-          color: Colors.blue,
-          margin: const EdgeInsets.all(2),
-          child: Column(
-            children: [Image.asset('images/leprous_aphelion.jpeg')],
-          ),
-        ),
-        Container(
-          width: 100,
-          color: Colors.yellow,
-        ),
-        Container(
-          width: 100,
-          color: Colors.orange,
-        ),
-      ],
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: _buildList());
+    return Column(children: [
+      Align(
+        alignment: Alignment.topLeft,
+        child: RichText(
+          text: const TextSpan(
+              text: ('Recently played'),
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20)),
+        ),
+      ),
+      const VSeparator(size: 20),
+      SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: recentlyPlayed
+                .map((recommendedAlbum) => BigCard(album: recommendedAlbum))
+                .toList(),
+          ))
+    ]);
   }
 }

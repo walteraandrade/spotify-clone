@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_clone/models/album.model.dart';
-import 'package:spotify_clone/src/horizontal_card.dart';
+import 'package:spotify_clone/src/atomic/horizontal_card.dart';
 
 class HorizontalCardList extends StatelessWidget {
   const HorizontalCardList({Key? key, required this.albums}) : super(key: key);

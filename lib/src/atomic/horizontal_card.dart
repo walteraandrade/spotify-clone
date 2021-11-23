@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_clone/models/album.model.dart';
+import 'package:spotify_clone/src/atomic/hseparator.dart';
 
 class HorizontalCard extends StatelessWidget {
   const HorizontalCard({Key? key, required this.album}) : super(key: key);
@@ -8,14 +9,15 @@ class HorizontalCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       color: (Colors.grey[900]),
       child: Row(
         children: [
           Image.asset(
             album.image,
-            height: 50,
-            width: 50,
+            fit: BoxFit.contain,
           ),
+          const HSeparator(size: 10),
           Expanded(
             child: Text(
               album.title,
@@ -30,12 +32,3 @@ class HorizontalCard extends StatelessWidget {
     );
   }
 }
-
-final List<Album> albumlist = [
-  const Album(image: 'images/marley_exodus.jpeg', title: 'Exodus'),
-  const Album(image: 'images/heynes_lsd.jpeg', title: 'Lake Shore Drive'),
-  const Album(image: 'images/leprous_aphelion.jpeg', title: 'Aphelion'),
-  const Album(image: 'images/string_tst.jpeg', title: 'Ten Summoner\'s Tales'),
-  const Album(image: 'images/mitchell_hejira.jpeg', title: 'Hejira'),
-  const Album(image: 'images/snarky_fd.jpeg', title: 'Family Dinner, vol 2')
-];
