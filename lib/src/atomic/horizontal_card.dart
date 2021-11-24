@@ -13,18 +13,19 @@ class HorizontalCard extends StatelessWidget {
       color: (Colors.grey[900]),
       child: Row(
         children: [
-          Image.asset(
-            album.image,
-            fit: BoxFit.contain,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: Image.asset(
+              album.image,
+              fit: BoxFit.contain,
+            ),
           ),
           const HSeparator(size: 10),
           Expanded(
             child: Text(
               album.title,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(color: Colors.white),
-              softWrap: false,
-              maxLines: 2,
+              style: const TextStyle(
+                  color: Colors.white, fontWeight: FontWeight.bold),
             ),
           )
         ],

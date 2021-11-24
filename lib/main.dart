@@ -1,9 +1,10 @@
-import 'package:spotify_clone/src/greetings.dart';
+import 'package:spotify_clone/src/modules/greetings.dart';
 import 'package:spotify_clone/src/atomic/vseparator.dart';
+import 'package:spotify_clone/src/modules/newly_added_songs.dart';
 
-import 'src/recommendations_row.dart';
+import 'src/modules/recommendations_row.dart';
 import 'package:flutter/material.dart';
-import 'src/home_page_grid.dart';
+import 'src/modules/home_page_grid.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,6 +28,8 @@ class MyApp extends StatelessWidget {
                     VSeparator(size: 60),
                     GreetingsSection(),
                     HomePageGrid(),
+                    NewlyAddedSongs(),
+                    VSeparator(size: 60),
                     RecommendationsRow()
                   ],
                 ))));

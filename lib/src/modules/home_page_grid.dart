@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_clone/src/atomic/horizontal_card.dart';
 
-import 'mocked-data/album_list.dart';
+import '../mocked-data/album_list.dart';
 
 class HomePageGrid extends StatelessWidget {
   const HomePageGrid({Key? key}) : super(key: key);
