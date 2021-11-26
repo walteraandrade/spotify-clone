@@ -9,13 +9,12 @@ class BigCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        width: 120,
-        height: 140,
+        width: 160,
         child: Column(
           children: [
             Image.network(
               album.image,
-              height: 100,
+              height: 150,
               fit: BoxFit.contain,
             ),
             const VSeparator(size: 10),

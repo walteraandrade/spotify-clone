@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_clone/src/atomic/hseparator.dart';
+import 'package:spotify_clone/src/atomic/vseparator.dart';
 import 'package:spotify_clone/src/mocked-data/newly_added_songs.dart';
 
 import 'newly_added_song_card.dart';
