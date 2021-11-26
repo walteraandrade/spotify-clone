@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:spotify_clone/src/atomic/hseparator.dart';
 import 'package:spotify_clone/src/mocked-data/player_data.dart';
 
@@ -53,3 +54,5 @@ class Player extends StatelessWidget {
         ));
   }
 }
+
+final playerProvier = Provider((_) => const Player());

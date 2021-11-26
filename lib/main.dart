@@ -1,3 +1,4 @@
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:spotify_clone/src/modules/greetings.dart';
 import 'package:spotify_clone/src/atomic/vseparator.dart';
 import 'package:spotify_clone/src/modules/newly_added_songs.dart';
@@ -8,14 +9,17 @@ import 'package:flutter/material.dart';
 import 'src/modules/home_page_grid.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(
+    child: MyApp(),
+  ));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends HookConsumerWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final Player player = ref.watch(playerProvier);
     return MaterialApp(
         home: Scaffold(
             body: Stack(
@@ -27,8 +31,8 @@ class MyApp extends StatelessWidget {
                     center: Alignment(-1, -1),
                     colors: [Colors.grey, Colors.black])),
             child: const HomeContent()),
-        const Positioned(
-          child: Player(),
+        Positioned(
+          child: player,
           bottom: 20,
           left: 10,
           right: 10,
