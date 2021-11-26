@@ -38,7 +38,7 @@ class NewlyAddedSongCard extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     softWrap: false,
                     maxLines: 3,
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.white, fontSize: 10),
                   ),
                   const VSeparator(size: 20),
                   Row(
