@@ -1,4 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:spotify_clone/src/atomic/theme/theme.dart';
+
 import 'package:spotify_clone/src/modules/greetings.dart';
 import 'package:spotify_clone/src/atomic/vseparator.dart';
 import 'package:spotify_clone/src/modules/newly_added_songs.dart';
@@ -21,24 +23,25 @@ class MyApp extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final Player player = ref.watch(playerProvier);
     return MaterialApp(
+        theme: DefaultTheme.defaultTheme,
         home: Scaffold(
             body: Stack(
-      children: [
-        Container(
-            padding: const EdgeInsets.all(20),
-            decoration: const BoxDecoration(
-                gradient: RadialGradient(
-                    center: Alignment(-1, -1),
-                    colors: [Colors.grey, Colors.black])),
-            child: const HomeContent()),
-        Positioned(
-          child: player,
-          bottom: 20,
-          left: 10,
-          right: 10,
-        )
-      ],
-    )));
+          children: [
+            Container(
+                padding: const EdgeInsets.all(20),
+                decoration: const BoxDecoration(
+                    gradient: RadialGradient(
+                        center: Alignment(-1, -1),
+                        colors: [Colors.grey, Colors.black])),
+                child: const HomeContent()),
+            Positioned(
+              child: player,
+              bottom: 20,
+              left: 10,
+              right: 10,
+            )
+          ],
+        )));
   }
 }
 
