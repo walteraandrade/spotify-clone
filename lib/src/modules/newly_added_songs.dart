@@ -40,6 +40,7 @@ class NewlyAddedSongs extends StatelessWidget {
             ),
           ],
         ),
+        const VSeparator(size: 10),
         const NewlyAddedSongCard()
       ],
     );
