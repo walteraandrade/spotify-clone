@@ -56,3 +56,18 @@ class Player extends StatelessWidget {
 }
 
 final playerProvier = Provider((_) => const Player());
+
+class PlayerProvider extends ConsumerWidget {
+  const PlayerProvider({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final Player player = ref.watch(playerProvier);
+    return Positioned(
+      child: player,
+      bottom: 10,
+      left: 2,
+      right: 2,
+    );
+  }
+}

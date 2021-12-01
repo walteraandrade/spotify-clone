@@ -16,54 +16,79 @@ void main() {
   ));
 }
 
-class MyApp extends HookConsumerWidget {
+class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: HomeLayout(),
+    );
+  }
+}
+
+class HomeContent extends HookConsumerWidget {
+  const HomeContent({
+    Key? key,
+  }) : super(key: key);
+
+  @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final Player player = ref.watch(playerProvier);
-    return MaterialApp(
-        theme: DefaultTheme.defaultTheme,
-        home: Scaffold(
-            body: Stack(
+    return SingleChildScrollView(
+        child: Stack(
+      children: [
+        Column(
+          children: const <Widget>[
+            VSeparator(size: 60),
+            GreetingsSection(),
+            HomePageGrid(),
+            VSeparator(size: 40),
+            NewlyAddedSongs(),
+            VSeparator(size: 40),
+            RecommendationsRow(),
+            VSeparator(size: 40),
+          ],
+        ),
+      ],
+    ));
+  }
+}
+
+class HomeLayout extends StatefulWidget {
+  const HomeLayout({Key? key, Player? player}) : super(key: key);
+
+  @override
+  _HomeLayoutState createState() => _HomeLayoutState();
+}
+
+class _HomeLayoutState extends State<HomeLayout> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Stack(
           children: [
             Container(
                 padding: const EdgeInsets.all(20),
                 decoration: const BoxDecoration(
                     gradient: RadialGradient(
                         center: Alignment(-1, -1),
-                        colors: [Colors.grey, Colors.black])),
+                        radius: 1,
+                        colors: [Colors.red, Colors.black])),
                 child: const HomeContent()),
-            Positioned(
-              child: player,
-              bottom: 20,
-              left: 10,
-              right: 10,
-            )
+            const PlayerProvider()
           ],
-        )));
-  }
-}
-
-class HomeContent extends StatelessWidget {
-  const HomeContent({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: const <Widget>[
-          VSeparator(size: 60),
-          GreetingsSection(),
-          HomePageGrid(),
-          NewlyAddedSongs(),
-          VSeparator(size: 40),
-          RecommendationsRow(),
-          VSeparator(size: 40),
-        ],
-      ),
-    );
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.black,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+            BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.library_music), label: 'Your library'),
+          ],
+          currentIndex: 0,
+        ));
   }
 }
