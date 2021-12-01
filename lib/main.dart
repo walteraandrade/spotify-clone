@@ -1,4 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:spotify_clone/src/atomic/theme/theme.dart';
+
 import 'package:spotify_clone/src/modules/greetings.dart';
 import 'package:spotify_clone/src/atomic/vseparator.dart';
 import 'package:spotify_clone/src/modules/newly_added_songs.dart';
