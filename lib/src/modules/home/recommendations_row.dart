@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:spotify_clone/src/atomic/big_card.dart';
 import 'package:spotify_clone/src/atomic/vseparator.dart';
-
-import '../atomic/big_card.dart';
-import '../mocked-data/recently_played.dart';
+import 'package:spotify_clone/src/mocked-data/recently_played.dart';
 
 class RecommendationsRow extends StatelessWidget {
   const RecommendationsRow({Key? key}) : super(key: key);
