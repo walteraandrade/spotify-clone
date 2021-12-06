@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_clone/src/modules/home/home_layout.dart';
+import 'package:spotify_clone/src/modules/login-form/login_layout.dart';
 import 'package:spotify_clone/src/modules/player/player.dart';
 import 'package:spotify_clone/src/modules/search/serach_page.dart';
 
@@ -16,7 +17,7 @@ class _BottomTabsState extends State<BottomTabs> {
   final List<Widget> _bottomTabWidgets = [
     const HomeLayout(),
     const SearchPage(),
-    Scaffold(appBar: AppBar(title: const Text('Sua Biblioteca'))),
+    const LoginLayout(),
   ];
 
   @override

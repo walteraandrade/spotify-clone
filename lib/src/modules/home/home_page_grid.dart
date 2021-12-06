@@ -1,3 +1,4 @@
+import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
 import 'package:spotify_clone/src/atomic/horizontal_card.dart';
 
@@ -13,7 +14,12 @@ class HomePageGrid extends StatelessWidget {
         crossAxisCount: 2,
         childAspectRatio: 3,
         shrinkWrap: true,
-        children:
-            albumlist.map((album) => HorizontalCard(album: album)).toList());
+        children: albumlist
+            .map((album) => GestureDetector(
+                  child: HorizontalCard(album: album),
+                  onTap: () =>
+                      context.beamToNamed('song/${album.id}', data: album),
+                ))
+            .toList());
   }
 }
