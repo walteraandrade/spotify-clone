@@ -17,8 +17,7 @@ class HomePageGrid extends StatelessWidget {
         children: albumlist
             .map((album) => GestureDetector(
                   child: HorizontalCard(album: album),
-                  onTap: () =>
-                      context.beamToNamed('song/${album.id}', data: album),
+                  onTap: () => context.beamToNamed('/${album.id}', data: album),
                 ))
             .toList());
   }
