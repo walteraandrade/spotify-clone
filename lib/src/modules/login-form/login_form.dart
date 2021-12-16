@@ -10,21 +10,34 @@ class LoginForm extends StatefulWidget {
 
 class _LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: _formKey,
-      child: Column(
-        children: const [
-          TaqTextFormField(
-            hintText: 'Please insert your email',
+        key: _formKey,
+        child: Scaffold(
+          body: Column(
+            children: [
+              const TaqTextFormField(
+                key: Key('emailField'),
+                hintText: 'Please insert your email',
+              ),
+              const TaqTextFormField(
+                key: Key('passwordField'),
+                hintText: 'Please insert your password',
+              ),
+              TextButton(
+                child: const Text('Submit'),
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Success')),
+                    );
+                  }
+                },
+              )
+            ],
           ),
-          TaqTextFormField(
-            hintText: 'Please insert your password',
-          ),
-          Text('Submit')
-        ],
-      ),
-    );
+        ));
   }
 }

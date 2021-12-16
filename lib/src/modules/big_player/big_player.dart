@@ -12,6 +12,9 @@ class BigPlayer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.black,
+        appBar: AppBar(
+          backgroundColor: Colors.black,
+        ),
         body: Padding(
             padding: const EdgeInsets.all(20),
             child: Column(

@@ -1,5 +1,5 @@
 import 'package:beamer/beamer.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:spotify_clone/models/album.model.dart';
 import 'package:spotify_clone/src/modules/big_player/big_player.dart';
 import 'package:spotify_clone/src/modules/home/bottom_tabs.dart';
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           key: ValueKey('album-$albumId'),
           title: album.title,
           popToNamed: '/',
-          type: BeamPageType.scaleTransition,
+          type: BeamPageType.fadeTransition,
           child: BigPlayer(
             album: album,
           ));
