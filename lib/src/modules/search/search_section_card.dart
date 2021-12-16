@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:spotify_clone/src/atomic/hseparator.dart';
 import 'package:spotify_clone/src/modules/search/search_section.dart';
 
 class SearchSectionCard extends StatelessWidget {
@@ -14,14 +13,12 @@ class SearchSectionCard extends StatelessWidget {
     return Card(
       clipBehavior: Clip.antiAlias,
       child: Container(
-        width: 160,
         height: 100,
-        decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(boxRadius)),
-            color: Colors.red),
-        child: Row(
+        decoration: const BoxDecoration(color: Colors.red),
+        child: Stack(
           children: [
-            SizedBox(
+            Positioned(
+              height: boxSize,
               child: Padding(
                   padding: const EdgeInsets.only(top: 20, left: 10),
                   child: Text(
@@ -31,12 +28,12 @@ class SearchSectionCard extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         fontSize: 14),
                   )),
-              height: boxSize,
             ),
-            const HSeparator(size: 60),
-            SizedBox(
+            Positioned(
+              top: 50,
+              left: 90,
               child: RotationTransition(
-                  turns: const AlwaysStoppedAnimation(25 / 360),
+                  turns: const AlwaysStoppedAnimation(40 / 360),
                   child: Image.network(
                     image,
                     height: 80,

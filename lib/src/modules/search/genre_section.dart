@@ -9,14 +9,18 @@ class GenreSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: const <SearchSectionCard>[
-        SearchSectionCard(
-          title: 'Rock',
-          image: rockImage,
+      children: const [
+        Expanded(
+          child: SearchSectionCard(
+            title: 'Rock',
+            image: rockImage,
+          ),
         ),
-        SearchSectionCard(
-          title: 'Rap',
-          image: rapImage,
+        Expanded(
+          child: SearchSectionCard(
+            title: 'Rap',
+            image: rapImage,
+          ),
         )
       ],
     );
